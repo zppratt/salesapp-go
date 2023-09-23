@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package customer;
+
+option go_package = "prattlabs.com/salesapp/customer";
+
+message Customer {
+  string first_name = 1;
+  string last_name = 2;
+}
+
+service CustomerService {
+  rpc GetCustomerInfo (CustomerRequest) returns (CustomerResponse);
+}
+
+message CustomerRequest {
+  string customer_id = 1;
+}
+
+message CustomerResponse {
+  Customer customer = 1;
+}
